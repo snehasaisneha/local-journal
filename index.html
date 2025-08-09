@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Journal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Daily Journal</h1>
+
+        <h2>Journal Entry</h2>
+
+        <label for="storyWorthyMoment">Story Worthy Moment</label>
+        <textarea id="storyWorthyMoment" rows="4" required></textarea>
+
+        <label for="photoWorthyMoment">Photo:</label>
+        <input type="file" id="photoWorthyMoment" accept="image/*" />
+        <div id="photoWorthyMoment-preview"></div>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" required>
+
+
+
+        <div class="mood-container">
+            <label>Mood</label>
+            <div class="mood-scale">
+                <div class="mood-option">
+                    <input type="radio" id="mood-2" name="mood" value="-2">
+                    <label for="mood--2">-2</label>
+                </div>
+                <div class="mood-option">
+                    <input type="radio" id="mood-1" name="mood" value="-1">
+                    <label for="mood--1">-1</label>
+                </div>
+                <div class="mood-option">
+                    <input type="radio" id="mood-0" name="mood" value="0">
+                    <label for="mood-0">0</label>
+                </div>
+                <div class="mood-option">
+                    <input type="radio" id="mood-1" name="mood" value="1">
+                    <label for="mood-1">1</label>
+                </div>
+                <div class="mood-option">
+                    <input type="radio" id="mood-2" name="mood" value="2">
+                    <label for="mood-2">2</label>
+                </div>
+            </div>
+        </div>
+
+
+        <h2>S3 Configuration</h2>
+        <label for="bucketName">S3 Bucket Name:</label>
+        <input type="text" id="bucketName" required>
+
+        <label for="s3Folder">S3 Folder (optional):</label>
+        <input type="text" id="s3Folder">
+
+        <label for="region">Region:</label>
+        <input type="text" id="region" required value="ap-south-1">
+
+        <label for="accessKeyId">AWS Access Key ID:</label>
+        <input type="text" id="accessKeyId" autocomplete="username" required>
+
+        <label for="secretAccessKey">AWS Secret Access Key:</label>
+        <input type="password" id="secretAccessKey" autocomplete="current-password" required>
+
+        <button type="button" id="upload-button">📤 Upload Journal Entry</button>
+        <div id="status"></div>
+
+        <button type="button" id="clear-local-data">🗑️ Clear S3 Presets</button>
+        <small style="color: #666; display: block; margin-top: 5px;">
+            This will clear saved bucket name and folder from your browser
+        </small>
+    </div>
+
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1.12.min.js"></script>
+    <script src="scripts.js"></script>
+
+</body>
+
+</html>
