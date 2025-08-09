@@ -264,11 +264,17 @@ input[type="file"]:hover {
     }
 }
 
-/* Minimal date input styling - let browsers handle native styling */
+/* Date input - minimal styling */
+input[type="date"] {
+    background-color: white;
+    color: #333;
+}
 
-/* Only fix the calendar icon cursor */
-input[type="date"]::-webkit-calendar-picker-indicator {
-    cursor: pointer;
+/* iOS Safari blue bleed fix only */
+@media screen and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: .001dpcm) {
+    input[type="date"]::-webkit-datetime-edit {
+        background: white;
+    }
 }
 
 /* Clear local data button styling */
