@@ -144,9 +144,10 @@ document.getElementById('upload-button').onclick = function () {
     const storyWorthyMoment = document.getElementById('storyWorthyMoment').value;
     const selectedMood = document.querySelector('input[name="mood"]:checked');
     const file = document.getElementById('photoWorthyMoment').files[0];
+    const moreInfo = document.getElementById('moreInfo').value;
 
     // Validation
-    if (!date || !storyWorthyMoment || !selectedMood) {
+    if (!date || !storyWorthyMoment || !selectedMood || !moreInfo) {
         document.getElementById('status').innerHTML = '❌ <strong>Missing required fields</strong><br>Please fill in date, story, and mood.';
         return;
     }
@@ -204,6 +205,7 @@ document.getElementById('upload-button').onclick = function () {
         timestamp: timestamp,
         storyWorthyMoment: storyWorthyMoment,
         photoWorthyMoment: photoS3Path, // Full S3 path including static folder
+        moreInfo: moreInfo,
         mood: parseInt(selectedMood.value),
         device: getDeviceName()
     };
