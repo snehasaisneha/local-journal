@@ -2,8 +2,29 @@ document.addEventListener('DOMContentLoaded', function () {
     const today = new Date().toISOString().split('T')[0];
     document.getElementById('date').value = today;
 
+    // iOS date input fix - similar to React Native's platform detection
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+    if (isIOS) {
+        // Apply iOS-specific styling to date input
+        const dateInput = document.getElementById('date');
+        dateInput.style.webkitAppearance = 'none';
+        dateInput.style.backgroundColor = 'white';
+
+        // Create a custom date display for iOS
+        dateInput.addEventListener('focus', function () {
+            this.style.color = '#333';
+            this.style.backgroundColor = 'white';
+        });
+
+        dateInput.addEventListener('blur', function () {
+            this.style.color = '#333';
+            this.style.backgroundColor = 'white';
+        });
+    }
+
     // Load saved S3 configuration from localStorage
-    loadS3Config();
+    loadS3Presets();
 
     // Photo preview functionality
     const photoInput = document.getElementById('photoWorthyMoment');
@@ -102,11 +123,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Clear local data button
     document.getElementById('clear-local-data').addEventListener('click', clearS3Presets);
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-    // Load S3 presets
-    loadS3Presets();
 });
 
 document.getElementById('upload-button').onclick = function () {

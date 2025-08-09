@@ -264,17 +264,20 @@ input[type="file"]:hover {
     }
 }
 
-/* Date input - minimal styling */
+/* Date input - clean cross-platform styling */
 input[type="date"] {
     background-color: white;
     color: #333;
+    border: 2px solid #e1e5e9;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 16px;
+    font-family: 'Manrope', Arial, sans-serif;
 }
 
-/* iOS Safari blue bleed fix only */
-@media screen and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: .001dpcm) {
-    input[type="date"]::-webkit-datetime-edit {
-        background: white;
-    }
+/* Calendar picker icon */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
 }
 
 /* Clear local data button styling */
