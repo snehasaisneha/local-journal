@@ -264,6 +264,13 @@ input[type="file"]:hover {
     }
 }
 
+/* Minimal date input styling - let browsers handle native styling */
+
+/* Only fix the calendar icon cursor */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+}
+
 /* Clear local data button styling */
 #clear-local-data {
     background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
